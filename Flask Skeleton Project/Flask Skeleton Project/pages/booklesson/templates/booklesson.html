@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'book new lessons' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('booklesson.static', filename='css/booklesson.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+
+<body>
+    <header>
+        <h1>ProSport</h1>
+        <h2>Book a new Lesson</h2>
+
+    </header>
+<div class="BookLesson">
+    <form id= "bookingForm"  method="POST" action='/book_new_lesson'>
+        {% if session.get('booking_message') %}
+        <p id= "error_message" >{{ session.get('booking_message') }}</p>
+        {% endif %}
+        <label for="lesson-type">Choose Lesson Type:</label><br>
+        <select id="lesson-type" name="lesson_type" required>
+            <option value="Pilates">Pilates</option>
+            <option value="Core Strenth">Core Strenth</option>
+            <option value="HIIT">HIIT</option>
+            <option value="Yoga">Yoga</option>
+            <option value="Flexibility and Stretching">Flexibility and Stretching</option>
+            <option value="Cardio">Cardio</option>
+        </select><br><br>
+
+        <label for="lesson-date">Choose Lesson Date:</label><br>
+        <input type="date" id="lesson-date" name="lesson_date" required><br><br>
+
+        <label for="lesson-time">Choose Lesson Time:</label><br>
+        <input type="time"  id="lesson-time" name="lesson_time" required><br>
+
+        <button  id= "book-lesson-button" type="submit" >Book A Lesson</button>
+    </form>
+</div>
+
+</body>
+
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('booklesson.static', filename='js/booklesson.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends '/base.html' %}
+
+{% block title %}MongoDB{% endblock %}
+
+{% block page_body_main_content %}
+
+        {{ message }}
+        <h2>accounts :</h2>
+      <ul>
+        {% for x in accounts_list %}
+          <li> email: {{x.email}}, first name: {{x.first_name}}, last name: {{x.last_name}}, phone: {{x.phone}},birthdate: {{x.birthdate}},password: {{x.password}}</li>
+{#            <form class="delete-form" action="/db_delete" method="post"><input type="text" name="name" value="{{x.name}}" hidden><input type="submit" value="X" class="delete-btn"></form> Name: {{x.name}}, Address: {{x.address}}, Rating: {{x.rating}}</li>#}
+        {% endfor %}
+      </ul>
+
+    <h2>lessons:</h2>
+      <ul>
+        {% for x in lessons_list %}
+          <li> type: {{x.type}}, duration: {{x.duration}}, physical level: {{x.physical_level}} ,price: {{x.price}}</li>
+{#            <form class="delete-form" action="/db_delete" method="post"><input type="text" name="name" value="{{x.name}}" hidden><input type="submit" value="X" class="delete-btn"></form> Name: {{x.name}}, Address: {{x.address}}, Rating: {{x.rating}}</li>#}
+        {% endfor %}
+      </ul>
+
+    <h2>bookings:</h2>
+      <ul>
+        {% for x in bookings_list %}
+          <li> email: {{x.email}}, date: {{x.Date}}, time: {{x.Time}}, lesson: {{x.Type}}, canceled: {{x.canceled}}</li>
+{#            <form class="delete-form" action="/db_delete" method="post"><input type="text" name="name" value="{{x.name}}" hidden><input type="submit" value="X" class="delete-btn"></form> Name: {{x.name}}, Address: {{x.address}}, Rating: {{x.rating}}</li>#}
+        {% endfor %}
+      </ul>
+
+    <a href="/db_increment">+1</a>
+
+    <br>
+    <br>
+    <br>
+
+    <form action="/db_insert" method="get">
+      <input type="text" name="name" placeholder="name">
+      <input type="text" name="address" placeholder="address">
+      <input type="number" name="rating" placeholder="rating">
+      <input type="submit" value="Add">
+    </form>
+
+{% endblock %}

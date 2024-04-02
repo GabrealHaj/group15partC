@@ -1,0 +1,26 @@
+REQUIREMENTS
+---
+
+This project requires the following libraries:
+
+- Flask
+- MongoDB
+- Jinja2
+-pymongo
+-MongoClient
+-ServerApi
+-cluster
+-render_template
+-redirect
+-url_for
+-Blueprint
+-session
+-request
+-jsonify
+-flash
+-datetime
+-BSON
+-ObjectId
+
+
+

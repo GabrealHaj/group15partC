@@ -1,0 +1,99 @@
+body {
+    font-family: Calibri, sans-serif;
+    background-color: #003366;
+}
+
+.Sign-In {
+    width: 500px;
+    padding: 16px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+h1 {
+    text-align: left;
+    color : #F4F4F4;
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 16px;
+    color: #F4F4F4;
+}
+
+.alert{
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 16px;
+    color: #FF8243;
+}
+
+#sign-in-button {
+    background-color: #FF8243;
+    color: white;
+    padding: 14px 20px;
+    margin: 10px 40px 10px 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.Sign-In-Inputs {
+
+    font-size: 25px;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+label {
+    font-size: 25px;
+    text-align: left;
+    margin-bottom: 8px;
+    color: #F4F4F4;
+}
+
+input {
+    font-size: 18px;
+    margin-bottom: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#sign-in-button:hover {
+    background-color: GRAY;
+}
+
+.social-media-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+p , a{
+    text-decoration: none;
+    color:#F4F4F4;
+
+}
+
+a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.google , .facebook{
+    background-color: white;
+    color:#003366;
+    border-radius: 8px;
+}
+
+.google:hover , .facebook:hover{
+    background-color: gray;
+    cursor: pointer;
+}

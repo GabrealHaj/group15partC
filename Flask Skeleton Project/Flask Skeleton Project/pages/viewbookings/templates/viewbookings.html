@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'my bookings' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('viewbookings.static', filename='css/viewbookings.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <header>
+        <h1>ProSport</h1>
+    </header>
+        <nav>
+        <h2>My Bookings</h2>
+        </nav>
+<body >
+<div class="bookings-container">
+    <div class="booking-list">
+    <h4>My Future Bookings:</h4>
+    <ol class="uls">
+        {% for booking in future_bookings %}
+        <li class="lis">{{ booking.Type }} , {{ booking.Date}} , {{ booking.Time }} --- <button onclick="cancelBooking('{{ booking['_id'] }}')">Cancel</button></li>
+        {% endfor %}
+    </ol>
+    </div>
+    <div>
+    <h4>My Earlier Bookings:</h4>
+    <ol class="uls">
+        {% for booking in past_bookings %}
+        <li class="lis">{{ booking.Type }} , {{ booking.Date}} , {{ booking.Time }}</li>
+        {% endfor %}
+    </ol>
+    </div>
+    <script>
+    function cancelBooking(bookingId) {
+        if (confirm('Are you sure you want to cancel this booking?')) {
+            window.location.href = '/cancel_booking/' + bookingId;
+        }
+    }
+    </script>
+</div>
+</body>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('viewbookings.static', filename='js/viewbookings.js') }}"></script>
+{% endblock %}

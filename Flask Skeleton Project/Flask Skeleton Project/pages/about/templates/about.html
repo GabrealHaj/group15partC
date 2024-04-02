@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'About' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('about.static', filename='css/about.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+
+        <body>
+
+            <h2>About Us</h2>
+          <section id="about-us">
+            <p class="about-us-paragraph">Welcome to our platform, where fitness meets personalization. At ProSport, we
+                understand that achieving your fitness goals is a unique journey, and that's
+                why we're here to offer a personalized approach to training. With a team of
+                certified and experienced trainers, we provide a range of private training lessons
+                tailored to meet your individual needs. Whether you're a beginner looking to
+                establish a solid fitness foundation, an athlete aiming to enhance performance,
+                or someone with specific health considerations. Join us on this empowering journey,
+                and let's transform your aspirations into achievements, one session at a time.</p><br>
+
+            <ul>
+                <li><p>TEL AVIV, HASHALOM 16</p></li>
+                <li><p>OPEN DAYS: SUNDAY-FRIDAY</p></li>
+                <li><p>CONTACT PHONE NUMBER 03-5263204</p></li>
+                <li><p>E-MAIL: <a href="mailto:info@onlineprosport.com">INFO@ONLINEPROSPORT.COM</a></p></li>
+            </ul>
+
+          </section>
+
+        <!--<script src="../ProSport.js"></script>-->
+        <script src="../SwitchPages.js" ></script>
+        </body>
+
+{% endblock %}
+
+{% block page_body_footer %}{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('about.static', filename='js/about.js') }}"></script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

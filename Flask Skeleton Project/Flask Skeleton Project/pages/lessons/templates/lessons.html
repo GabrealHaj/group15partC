@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'our lessons' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('lessons.static', filename='css/lessons.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <header>
+        <h1>ProSport</h1>
+    </header>
+    <body>
+
+    <h2>Our Available Lesson</h2>
+    <div class="AvailableLessons">
+        <div class="lessonType">
+            <h3>Pilates</h3>
+            <p>Duration: 60 mins</p>
+            <p>Physical Level: Intermediate</p>
+            <p>Price: $35</p><br>
+            <img src="{{ url_for('lessons.static', filename='media/pilates.png') }}"  style="width: 100px">        </div>
+        <div class="lessonType">
+            <h3>Yoga</h3>
+            <p>Duration: 60 mins</p>
+            <p>Physical Level: Beginners</p>
+            <p>Price: $35</p><br>
+            <img src="{{ url_for('lessons.static', filename='media/yoga.png') }}" style="width: 100px"><img/>
+        </div>
+        <div class="lessonType">
+            <h3>HIIT</h3>
+            <p>Duration: 60 mins</p>
+            <p>Physical Level: Advanced</p>
+            <p>Price: $40</p><br>
+            <img src="{{ url_for('lessons.static', filename='media/hiit.png') }}" style="width: 100px"><img/>
+        </div>
+        <div class="lessonType">
+            <h3>Core Strengthening</h3>
+            <p>Duration: 60 mins</p>
+            <p>Physical Level: Advanced</p>
+            <p>Price: $40</p><br>
+            <img src="{{ url_for('lessons.static', filename='media/strength.png') }}" style="width: 100px"><img/>
+        </div>
+        <div class="lessonType">
+            <h3>Flexibility and Stretching</h3>
+            <p>Duration: 45 mins</p>
+            <p>Physical Level: Beginners</p>
+            <p>Price: $30</p><br>
+            <img src="{{ url_for('lessons.static', filename='media/flexibility.png') }}" style="width: 100px"><img/>
+        </div>
+        <div class="lessonType">
+            <h3>Cardio</h3>
+            <p>Duration: 45 mins</p>
+            <p>Physical Level: Intermediate</p>
+            <p>Price: $30</p><br>
+            <img src="{{ url_for('lessons.static', filename='media/cardio.png') }}" style="width: 100px"><img/>
+        </div>
+    </div>
+
+</body>
+
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('lessons.static', filename='js/lessons.js') }}"></script>
+{% endblock %}

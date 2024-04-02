@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'register' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('register.static', filename='css/register.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+
+    <body>
+    <h1>ProSport</h1>
+    <nav><h2>REGISTER</h2></nav>
+    <div class="Register">
+    <form id= "registrationForm" name= "registrationForm" action='/register-account' method="POST">
+
+
+            <!-- Flash message -->
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flash-messages">
+              {% for message in messages %}
+                <div class="flash-message">{{ message }}</div>
+              {% endfor %}
+            </div>
+             <script>
+                    setTimeout(function() {
+                        let messageElement = document.getElementsByClassName("flash-messages");
+                        if (messageElement) {
+                            messageElement.style.display = "none";
+                        }
+                    }, 3000); // 5000 milliseconds = 5 seconds
+             </script>
+          {% endif %}
+        {% endwith %}<br>
+
+        <label for="reg-email">Email Address:</label>
+         <input  class="inputs-reg" type="email" id="reg-email" name="email" placeholder="Insert your Email Address"  required><br>
+            <ul id="emailMessage"></ul>
+         <label for="reg-first_name">First Name:</label>
+         <input class="inputs-reg"  type="text" id="reg-first_name" name="first_name" placeholder="Insert your First Name" onfocusout="validateFirstName()" required><br>
+            <ul id="firstnameMessage"></ul>
+         <label for="reg-last_name">Last Name:</label>
+         <input class="inputs-reg"  type="text" id="reg-last_name" name="last_name" placeholder="Insert your Last Name" onfocusout="validateLastName()" required><br>
+            <ul id="lastnameMessage"></ul>
+         <label for="reg-phone_number">Phone Number:</label>
+         <input class="inputs-reg"  type="tel" id="reg-phone_number" name="phone_number" placeholder="Insert your phone number" onfocusout="validatePhoneNumber()" required><br>
+            <ul id="phoneMessage"></ul>
+         <label for="reg-birth_date">Birth Date:</label>
+         <input  class="inputs-reg"  type="date" id="reg-birth_date" name="birth_date" onfocusout="validateBirthDate()" required><br>
+             <ul id="birthdateMessage"></ul>
+         <label for="reg-password">Account Password:</label>
+         <input class="inputs-reg"  type="password" id="reg-password" name="password" placeholder="Insert your password" onfocusout="validatePassword()" required><br>
+          <ul id="passwordMessage"></ul>
+
+         <label for="reg-health_certification">Health Certification:</label>
+         <input class="inputs-reg"  type="file" id="reg-health_certification" name="health_certification" accept=".pdf" ><br>
+
+         <button class="buttons" onclick="" type="submit" >CREATE ACCOUNT</button>
+
+      </form>
+
+     </div>
+
+</body>
+
+{% endblock %}
+
+{% block page_body_footer %}{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('register.static', filename='js/register.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+{% endblock %}

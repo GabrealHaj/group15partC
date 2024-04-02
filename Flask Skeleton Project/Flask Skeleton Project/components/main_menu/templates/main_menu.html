@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="{{ url_for('main_menu.static', filename='css/main-menu.css') }}"/>
+
+{%
+    set menu_items = {
+        'homepage': '/',
+        'login' : url_for('login.index'),
+        'register' : url_for('register.index'),
+        'profile': url_for('profile.index'),
+        'edit my info': url_for('editinfo.index'),
+        'book new lesson': url_for('booklesson.index'),
+        'My bookings': url_for('view_my_bookings'),
+        'our lessons': url_for('lessons.index'),
+        'about': url_for('about.index'),
+        'MongoDB Analyze' : url_for('MongoDB.index'),
+        'log out': url_for('logout_func')
+    }
+%}
+
+{% for item in menu_items %}
+    <li class="item-in-nav">
+        <a
+            href="{{ menu_items[item] }}"
+            {% if menu_items[item] == request.path %}
+                class="active"
+            {% endif %}
+        >{{ item | capitalize }}</a>
+    </li>
+{% endfor %}
+

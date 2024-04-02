@@ -1,0 +1,64 @@
+{% extends '/base.html' %}
+
+{% block title %}Edit information{% endblock %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('editinfo.static', filename='css/editinfo.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+
+<body>
+        <h1>ProSport</h1>
+        <h2>Edit Information</h2>
+    <form id="edit-form" name= "edit-form" action="/update-account" method="POST">
+      <fieldset>
+
+            <!-- message -->
+          {% if session.get('edit_message') %}
+            <div class="flash-messages">
+                <div class="flash-message">{{ session.get('edit_message') }}</div>
+            </div>
+             <script>
+                    setTimeout(function() {
+                        let messageElement = document.getElementsByClassName("flash-messages");
+                        if (messageElement) {
+                            messageElement.style.display = "none";
+                        }
+                    }, 3000); // 5000 milliseconds = 5 seconds
+             </script>
+          {% endif %}
+        <br>
+
+        <label for="edit-email">Email Address:</label>
+         <input type="email" id="edit-email" name="email" placeholder="{{ session.get('email') }}" readonly ><br>
+         <label for="edit-first_name">First Name:</label>
+         <input type="text" id="edit-first_name" name="first_name" placeholder="{{ session.get('first_name') }}" onfocusout="validateFirstName()" ><br>
+            <ul id="firstnameMessage"></ul>
+         <label for="edit-last_name">Last Name:</label>
+         <input type="text" id="edit-last_name" name="last_name" placeholder="{{ session.get('last_name') }}" onfocusout="validateLastName()" ><br>
+            <ul id="lastnameMessage"></ul>
+         <label for="edit-phone_number">Phone Number:</label>
+         <input type="tel" id="edit-phone_number" name="phone_number" placeholder="{{ session.get('phone_number') }}" onfocusout="validatePhoneNumber()"><br>
+            <ul id="phoneMessage"></ul>
+         <label for="edit-birth_date">Birth Date:</label>
+         <input type="date" id="edit-birth_date" name="birth_date" onfocusout="validateBirthDate()" ><br>
+            <ul id="birthdateMessage"></ul>
+         <label for="edit-password">Account Password:</label>
+         <input type="password" id="edit-password" name="password" placeholder="Insert your new password" onfocusout="validatePassword()" ><br>
+            <ul id="passwordMessage"></ul>
+         <label for="edit-health_certification">Health Certification:</label>
+         <input type="file" id="edit-health_certification" name="health_certification" accept=".pdf"><br>
+
+
+      </fieldset>
+
+      <button class="buttons" type="submit">SAVE</button>
+    </form>
+
+</body>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('editinfo.static', filename='js/editinfo.js') }}"></script>
+{% endblock %}

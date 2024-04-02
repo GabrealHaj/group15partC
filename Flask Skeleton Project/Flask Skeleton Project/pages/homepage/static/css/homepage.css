@@ -1,0 +1,100 @@
+
+body {
+	font-family: Calibri , sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #F4F4F4;
+}
+
+header h1 {
+	color: #003366;
+	font-family: "Italic ", sans-serif;
+	font-size: 4em;
+	text-align: start;
+	margin-bottom: 0;
+}
+
+header h2 {
+	color: #FF8243;
+	text-align: center;
+	font-size: 50px;
+	margin-top: 0;
+}
+@keyframes fade-in {
+  	0% {
+   	 	opacity: 0;
+  	}
+  	100% {
+		opacity: 1;
+  	}
+}
+
+h2 {
+  animation: fade-in 5s forwards;
+}
+
+.OpenPage{
+	display: grid;
+	grid-template-columns: 3fr 2fr;
+	font-size: 24px;
+	background-color: #F4F4F4;
+	padding: 10px;
+	text-align: center;
+	margin: 10px;
+	gap: 5px;
+	grid-template-rows: repeat(auto-fit, minmax(90px, 1fr));
+
+}
+.OpenPagePicture1 img{
+	border-radius:15px;
+	height: auto;
+	width: auto;
+}
+
+@media (Max-width: 600px) {
+	.OpenPagePicture1 {
+	   display: none;
+	}
+	.OpenPageButtons{
+	width : 400px;
+	justify-content: center;
+	}
+}
+
+@media (Min-width: 1000px) {
+	.OpenPagePicture1 img {
+	   	width: 700px;
+		height: 500px;
+	}
+	.OpenPageButtons{
+	width : 300px;
+	height: 60px;
+	justify-content: center;
+	}
+}
+
+
+.OpenPageButtons{
+	padding: 10px;
+}
+
+button {
+	font-size: 20px;
+	background-color: #003366;
+	justify-content: center;
+	color : white ;
+	padding: 15px 40px 15px 40px;
+	border-radius: 10px;
+	margin: 5px;
+	width: auto;
+}
+
+#contact-us-link {
+	text-decoration: none ;
+	color: white;
+}
+
+button:hover {
+	background-color: GRAY;
+	cursor: pointer;
+}

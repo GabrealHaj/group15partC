@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'log in' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('login.static', filename='css/login.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+
+    <body>
+    <h1>Prosport</h1>
+    <div class="Sign-In">
+        <nav><h2>SIGN IN</h2>
+
+          {% if session.get('message') %}
+              <div class="alert">{{ session.get('message') }}</div>
+          {% endif %}
+        </nav>
+        <form class="Sign-In-Inputs" method="POST" action="/logged_in">
+            <label for="signInEmail">Email Address</label>
+            <input type="email" id="signInEmail" name="email" placeholder="Insert your Email Address" required>
+            <label for="signInPassword">Password</label>
+            <input type="password" id="signInPassword" name="password" placeholder="Insert your Password" required>
+            <button id="sign-in-button" type="submit" onclick="" >SIGN IN</button>
+            <p>Don't have an account yet ? <a href='{{ url_for('register.index') }}' style="color: #FF8243">Sign up here</a></p>
+            <p> OR </p>
+            <p>Sign in with</p>
+        </form>
+
+        <div class="social-media-links">
+            <button class="google" onclick="window.location.href='https://accounts.google.com/ServiceLogin';">
+                <i class="material-icons">
+                    <img src='https://developers.google.com/identity/images/g-logo.png' alt="Here supposed to be a picture." style="width: 50px">
+                </i>  GOOGLE
+            </button>
+            <button class="facebook" onclick="window.location.href='https://www.facebook.com/login';">
+                <i class="material-icons">
+                    <img src="{{ url_for('login.static', filename='media/Facebook_icon.png') }}" alt="Here supposed to be a picture." style="width: 50px">
+                </i>  FACEBOOK
+            </button>
+        </div>
+    </div>
+    </body>
+
+
+{% endblock %}
+
+
+{% block page_body_js %}
+    <script src="{{ url_for('login.static', filename='js/login.js') }}"></script>
+{% endblock %}

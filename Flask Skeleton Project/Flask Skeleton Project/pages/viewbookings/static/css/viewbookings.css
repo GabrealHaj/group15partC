@@ -1,0 +1,55 @@
+
+body {
+    font-family: Calibri, sans-serif;
+    background-color: #F4F4F4;
+    justify-content: center;
+
+}
+
+.bookings-container {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.booking-list {
+    text-align: left;
+    padding: 0 10px;
+    margin-right: 40px
+}
+h1{
+    text-align: left;
+    margin-bottom: 5px;
+    color: #003366;
+    font-size :60px
+}
+h2{
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 5px;
+    color: #003366
+}
+
+h4{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-left: 50px;
+    color: #003366
+}
+
+.lis{
+    font-size: 25px;
+    font-style: italic;
+    text-align: left;
+    margin-left: 40px;
+}
+
+button{
+    background-color: #FF8243;
+    color:#F4F4F4;
+    padding: 5px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}

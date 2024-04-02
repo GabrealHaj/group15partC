@@ -1,0 +1,45 @@
+
+{% extends '/base.html' %}
+
+{% block title %}Home Page{% endblock %}
+
+
+{% block page_body_main_content %}
+{##}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+
+<link rel="stylesheet" href="{{ url_for('homepage.static', filename='css/homepage.css') }}"/>
+<title>	Home Page</title>
+<body>
+	<header>
+		<h1>ProSport</h1>
+		<h2>Book your private lesson now!</h2>
+	</header>
+
+	<div class="OpenPage">
+		<div class="OpenPagePicture1">
+            <img src="{{ url_for('homepage.static', filename='media/Picture1.png') }}" alt="Here supposed to be a picture." >
+
+		</div>
+
+		<div class="OpenPageButtons">
+			<button id="register-now-button" onclick="window.location.href='{{ url_for('register.index') }}';" >REGISTER NOW</button>
+			<br>
+			<p>ALREADY HAVE ACCOUNT?</p>
+			<button id="signIn-now-button" onclick="window.location.href='{{ url_for('login.index') }}';">SIGN IN</button>
+			<br>
+			<br>
+			<button> <a id="contact-us-link" href="mailto:info@onlineprosport.com">CONTACT US</a></button>
+			<br>
+			<button id="aboutUs-now-button" onclick="window.location.href='{{ url_for('about.index') }}';">ABOUT US</button>
+		</div>
+
+	</div>
+
+<!--<script src="../ProSport.js" ></script>-->
+<!--<script src="../Views/Home.js" ></script>-->
+</body>
+{#</html>#}
+
+{% endblock %}

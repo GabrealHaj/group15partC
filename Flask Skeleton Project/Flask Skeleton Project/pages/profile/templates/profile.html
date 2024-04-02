@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'My Profile' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('profile.static', filename='css/profile.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <header>
+        <h1>ProSport</h1>
+            {% if session.get('logged_in') == True %}
+                <h2><p id= "success_message" >{{ session.get('message') }}</p>
+                    Hello {{ session.get('first_name') }} , Welcome back to your Profile!
+                </h2>
+                    <script>
+                    setTimeout(function() {
+                        let messageElement = document.getElementById("success_message");
+                        if (messageElement) {
+                            messageElement.style.display = "none";
+                        }
+                    }, 3000); // 3000 milliseconds = 5 seconds
+                    </script>
+            {% else %}
+                <h2>Hello customer, try to log in first. <br>
+                <a id="signIn-now-link" onclick="window.location.href='{{ url_for('login.index') }}';">SIGN IN NOW</a><br>
+                </h2>
+            {% endif %}
+    </header>
+
+    <body>
+
+
+    <div>
+          <button onclick="window.location.href='{{ url_for('booklesson.index') }}';" class="buttons" id="BookNewLesson"
+              {% if session.get('logged_in') == False %}
+                  disabled
+              {% endif %}>Book New Lesson</button><br>
+          <button onclick="window.location.href='{{ url_for('view_my_bookings') }}';" class="buttons" id="ViewMyBookings"
+              {% if session.get('logged_in') == False %}
+                  disabled
+              {% endif %}>View My Bookings</button><br>
+          <button onclick="window.location.href='{{ url_for('lessons.index') }}';" class="buttons" id="ViewLessonTypes"
+              {% if session.get('logged_in') == False %}
+                  disabled
+              {% endif %}>View Lesson Types</button><br>
+          <button onclick="window.location.href='{{ url_for('editinfo.index') }}';" class="buttons"   id="EditMyInformation"
+               {% if session.get('logged_in') == False %}
+                  disabled
+              {% endif %}>Edit My Information</button><br>
+    </div>
+
+
+</body>
+{% endblock %}
+
+{% block page_body_footer %}{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('profile.static', filename='js/profile.js') }}"></script>
+{% endblock %}
